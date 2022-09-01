@@ -22,14 +22,14 @@ export default async function battle(req: Request, res: Response) {
       secondUser
     );
 
-    await chekFighter(compare.winner);
-    if (!chekFighter) {
+    const checkwinner = await chekFighter(compare.winner);
+    if (checkwinner.length < 1) {
       await postNewFighters(compare.winner, 1, 0, 0);
     }
     await updateWinnerFighters(compare.winner);
 
-    await chekFighter(compare.loser);
-    if (!chekFighter) {
+    const checkloser = await chekFighter(compare.loser);
+    if (checkloser.length < 1) {
       await postNewFighters(compare.loser, 0, 1, 0);
     }
     await updateLoserFighters(compare.loser);

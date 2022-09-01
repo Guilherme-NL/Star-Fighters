@@ -38,6 +38,7 @@ export async function chekFighter(user: string) {
     "SELECT * FROM fighters WHERE username = $1",
     [user]
   );
-
+  console.log(user);
+  console.log(chekUser.rows);
   return chekUser.rows;
 }
