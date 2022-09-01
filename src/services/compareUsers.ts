@@ -1,3 +1,6 @@
+import { postNewFighters } from "../repositories/postfighters";
+import { chekFighter } from "../repositories/postfighters";
+
 export default async function compareUsers(
   firstUserStars: number,
   secondUserStars: number,

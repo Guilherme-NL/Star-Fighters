@@ -1,6 +1,10 @@
-export default function ranking(req, res) {
+import { Response, Request } from "express";
+import { getAllFighters } from "../repositories/getfighters.js";
+
+export default function ranking(req: Request, res: Response) {
   try {
-    res.sendStatus(200);
+    const results = getAllFighters();
+    res.send(results).status(200);
   } catch {
     res.sendStatus(500);
   }
